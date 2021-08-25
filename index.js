@@ -1,7 +1,7 @@
 /**
  * Appends an element to the end of an array. Do not use the push method.
- * @param {Any[]} array - an array of any kind of elements.
- * @param {Any[]} element - an element of any kind.
+ * @param {Array[*]} array - an array of any kind of elements.
+ * @param {Array[*]} element - an element of any kind.
  * @returns {number} the new length of the array.
  */
 
@@ -11,7 +11,7 @@ function myPushFunction(array, element) {
   return array.length;
 }
 
-// A version that can handle multiple elements passed in.
+// A version that can handle multiple elements passed in. Just remove the .skip from the test spec!
 function myPushFunctionAlt(array, ...values) {
   for (const value of values) {
     array[array.length] = value;
@@ -38,12 +38,12 @@ function myPopFunction(array) {
 
 /**
  * Determine whether an array includes a specific value within its entries. Do not use the includes method.
- * @param {Any[]} array - an array of with any kind of elements.
+ * @param {Array[*]} array - an array of with any kind of elements.
  * @param {*} searchElement - an element of any type that you are searching for in the array.
  * @param {number} start - an index from which to start searching.
  * @returns {boolean} returns true or false if the searchElement is found in the array.
  */
-function myIncludesFunction(array, searchElement, start) {
+function myIncludesFunction(array, searchElement, start = 0) {
   if (start !== undefined && start < 0) {
     start = array.length + start;
   }
@@ -68,13 +68,9 @@ function myIncludesFunction(array, searchElement, start) {
  * @param {number} start - an index from which to start searching.
  * @returns {number} returns the index at which the searchElement is found, or -1 if it is not found.
  */
-function myIndexOfFunction(array, searchElement, start) {
-  if (start !== undefined && start < 0) {
+function myIndexOfFunction(array, searchElement, start = 0) {
+  if (start < 0) {
     start = array.length + start;
-  }
-
-  if (start === undefined) {
-    start = 0;
   }
 
   for (let i = start; i < array.length; i++) {
@@ -93,14 +89,12 @@ function myIndexOfFunction(array, searchElement, start) {
  * @param {number} [start] - an optional number representing the ending index of the extraction (non-inclusive). The end can be negative.
  * @returns {Array[*]} returns a new array containing the extracted elements.
  */
-function mySliceFunction(array, start, end) {
-  if (start === undefined) {
-    start = 0;
-  } else if (start < 0) {
+function mySliceFunction(array, start = 0, end = array.length) {
+  if (start < 0) {
     start = array.length + start;
   }
 
-  if (end === undefined || end > array.length) {
+  if (end > array.length) {
     end = array.length;
   } else if (end < 0) {
     end = array.length + end;
@@ -108,7 +102,7 @@ function mySliceFunction(array, start, end) {
 
   const result = [];
   for (let i = start; i < end; i++) {
-    result.push(array[i]);
+    result[result.length] = array[i];
   }
 
   return result;
@@ -121,18 +115,14 @@ function mySliceFunction(array, start, end) {
  * @param {string} [separator] - an optional string to separate each pair of adjacent elements of the array. If no separator is specific the default separator should be a comma (",")
  * @returns {string} returns a new array containing the extracted elements
  */
-function myJoinFunction(array, separator) {
-  if (separator === undefined) {
-    separator = ",";
-  }
-
+function myJoinFunction(array, separator = ",") {
   let result = "";
   for (let i = 0; i < array.length; i++) {
     const string = array[i];
     if (i === array.length - 1) {
-      result = result + string;
+      result += string;
     } else {
-      result = result + string + separator;
+      result += string + separator;
     }
   }
 
@@ -145,12 +135,11 @@ function myJoinFunction(array, separator) {
  * @returns {Array[*]} returns a new array with the elements reversed.
  */
 function myReverseFunction(array) {
-  let middle = array.length / 2;
-  for (let i = 0; i < middle; i++) {
-    const j = array.length - i - 1;
+  for (let i = 0; i < array.length / 2; i++) {
+    const opposite = array.length - i - 1;
     const temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+    array[i] = array[opposite];
+    array[opposite] = temp;
   }
 
   return array;
@@ -174,6 +163,7 @@ function myUnshiftFunction(array, newElement) {
   return array.length;
 }
 
+// We do NOT have a solution here for the skipped "multiple elements" test. We'll update this repo once we tackle that one!
 /**
  * Removes the first element of the array and returns the removed element, or undefined if the array is empty. Do not use the shift method.
  * @param {Array[*]} array - an array of any kind of elements.

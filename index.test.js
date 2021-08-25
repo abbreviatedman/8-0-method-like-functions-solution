@@ -126,7 +126,7 @@ describe("myIncludesFunction()", () => {
     expect(actual2).toEqual(expected2);
   });
 
-  test.skip("returns false if the searched for element is not in the array from the given starting index to the end of the array", () => {
+  test("returns false if the searched for element is not in the array from the given starting index to the end of the array", () => {
     const array1 = ["fire", "water", "earth", "air"];
     const actual1 = myIncludesFunction(array1, "water", 2);
     const expected1 = false;
@@ -138,7 +138,7 @@ describe("myIncludesFunction()", () => {
     expect(actual2).toEqual(expected2);
   });
 
-  test.skip("returns true if the searched for element is in the array from the given starting index to the end of the array", () => {
+  test("returns true if the searched for element is in the array from the given starting index to the end of the array", () => {
     const array1 = ["fire", "water", "earth", "air"];
     const actual1 = myIncludesFunction(array1, "air", 2);
     const expected1 = true;
@@ -150,7 +150,7 @@ describe("myIncludesFunction()", () => {
     expect(actual2).toEqual(expected2);
   });
 
-  test.skip("can handle negative starting indices, searching from that many elements from the END of the array", () => {
+  test("can handle negative starting indices, searching from that many elements from the END of the array", () => {
     const array1 = ["fire", "water", "earth", "air"];
     const actual1 = myIncludesFunction(array1, "air", -2);
     const expected1 = true;
@@ -194,7 +194,7 @@ describe("myIndexOfFunction()", () => {
     expect(actual2).toEqual(expected2);
   });
 
-  test.skip("returns -1 if the searched for element is not in the array from the given starting index to the end of the array", () => {
+  test("returns -1 if the searched for element is not in the array from the given starting index to the end of the array", () => {
     const array1 = ["fire", "water", "earth", "air"];
     const actual1 = myIndexOfFunction(array1, "water", 2);
     const expected1 = -1;
@@ -206,7 +206,7 @@ describe("myIndexOfFunction()", () => {
     expect(actual2).toEqual(expected2);
   });
 
-  test.skip("returns the correct index if the searched for element is in the array from the given starting index to the end of the array", () => {
+  test("returns the correct index if the searched for element is in the array from the given starting index to the end of the array", () => {
     const array1 = ["fire", "water", "earth", "air"];
     const actual1 = myIndexOfFunction(array1, "air", 2);
     const expected1 = 3;
@@ -218,7 +218,7 @@ describe("myIndexOfFunction()", () => {
     expect(actual2).toEqual(expected2);
   });
 
-  test.skip("can handle negative starting indices, searching from that many elements from the END of the array", () => {
+  test("can handle negative starting indices, searching from that many elements from the END of the array", () => {
     const array1 = ["fire", "water", "earth", "air"];
     const actual1 = myIndexOfFunction(array1, "air", -2);
     const expected1 = 3;
@@ -288,7 +288,7 @@ describe("mySliceFunction()", () => {
     expect(actual3).toEqual(expected3);
   });
 
-  test.skip("returns a new array starting at the given negative index", () => {
+  test("returns a new array starting at the given negative index", () => {
     const array1 = ["fire", "water", "earth", "air"];
     const actual1 = mySliceFunction(array1, -2);
     const expected1 = ["earth", "air"];
@@ -300,7 +300,7 @@ describe("mySliceFunction()", () => {
     expect(actual2).toEqual(expected2);
   });
 
-  test.skip("returns a new array starting at the given index and up to but not including the given negative index", () => {
+  test("returns a new array starting at the given index and up to but not including the given negative index", () => {
     const array1 = ["fire", "water", "earth", "air"];
     const actual1 = mySliceFunction(array1, 2, -1);
     const expected1 = ["earth"];
@@ -312,7 +312,7 @@ describe("mySliceFunction()", () => {
     expect(actual2).toEqual(expected2);
   });
 
-  test.skip("returns a new array starting at the given index and up to the last element if the given end index is more than the length of the array", () => {
+  test("returns a new array starting at the given index and up to the last element if the given end index is more than the length of the array", () => {
     const array1 = ["fire", "water", "earth", "air"];
     const actual1 = mySliceFunction(array1, 2, 8);
     const expected1 = ["earth", "air"];
